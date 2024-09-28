@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<rss version="0.91">
+  <channel>
+    <title>JavaProjectTemplate - Checkstyle report</title>
+    <link>http://maven.apache.org</link>
+    <description>JavaProjectTemplate - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2024</copyright>
+    <item>
+      <title>File: 15,
+             Errors: 0,
+             Warnings: 237,
+             Infos: 0
+      </title>
+            <link>http://maven.apache.org/checkstyle.html</link>
+      <description>
+        <p>Click <a href="http://maven.apache.org/checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#edu.bu.met.cs665.BeverageVendor.tea.BlackTea.java">edu/bu/met/cs665/BeverageVendor/tea/BlackTea.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#edu.bu.met.cs665.BeverageVendor.tea.Tea.java">edu/bu/met/cs665/BeverageVendor/tea/Tea.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  48
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#edu.bu.met.cs665.BeverageVendor.vendor.TeaCreator.java">edu/bu/met/cs665/BeverageVendor/vendor/TeaCreator.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  22
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#edu.bu.met.cs665.BeverageVendor.Condiment.java">edu/bu/met/cs665/BeverageVendor/Condiment.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#edu.bu.met.cs665.BeverageVendor.tea.YellowTea.java">edu/bu/met/cs665/BeverageVendor/tea/YellowTea.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#edu.bu.met.cs665.BeverageVendor.Size.java">edu/bu/met/cs665/BeverageVendor/Size.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#edu.bu.met.cs665.BeverageVendor.vendor.CoffeeCreator.java">edu/bu/met/cs665/BeverageVendor/vendor/CoffeeCreator.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  22
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#edu.bu.met.cs665.BeverageVendor.Main.java">edu/bu/met/cs665/BeverageVendor/Main.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  23
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#edu.bu.met.cs665.BeverageVendor.vendor.BeverageVendor.java">edu/bu/met/cs665/BeverageVendor/vendor/BeverageVendor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  2
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#edu.bu.met.cs665.BeverageVendor.tea.GreenTea.java">edu/bu/met/cs665/BeverageVendor/tea/GreenTea.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#edu.bu.met.cs665.BeverageVendor.coffee.Coffee.java">edu/bu/met/cs665/BeverageVendor/coffee/Coffee.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  43
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#edu.bu.met.cs665.BeverageVendor.coffee.Americano.java">edu/bu/met/cs665/BeverageVendor/coffee/Americano.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#edu.bu.met.cs665.BeverageVendor.Beverage.java">edu/bu/met/cs665/BeverageVendor/Beverage.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  13
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#edu.bu.met.cs665.BeverageVendor.coffee.Espresso.java">edu/bu/met/cs665/BeverageVendor/coffee/Espresso.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://maven.apache.org/checkstyle.html#edu.bu.met.cs665.BeverageVendor.coffee.LatteMacchiato.java">edu/bu/met/cs665/BeverageVendor/coffee/LatteMacchiato.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+
