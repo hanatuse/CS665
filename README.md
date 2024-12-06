@@ -1,42 +1,67 @@
 | CS-665       | Software Design & Patterns |
 | ------------ | -------------------------- |
 | Name         | YINGTONG ZHOU              |
-| Date         | 09/21/2024                 |
+| Date         | 12/06/2024                 |
 | Course       | Fall                       |
-| Assignment # | 1                          |
+| Assignment # | 6                          |
 
 # Assignment Overview
 
-Assignment 1 requires to develop an app to control a beverage vending machine. Functionalities include:
-
--   Produce different types of beverages
--   Add condiments between 0 - 3 units for each condiment
--   Unit tests are required
--   (Optional) Calculate final price
+I chose Assignment 1. Fully Automatic Beverage Vending Machine as an example to improve.
 
 # GitHub Repository Link:
 
 https://github.com/hanatuse/cs-665-assignment-1
 
-# Assumptions
-
--   Base price ($): coffee(4.0), tea(3.5)
--   Size price ($): SMALL(0.0), MEDIUM(0.1), LARGE(0.2);
--   Condiment price ($): milk(0.5), cream(0.5), sugar(0.2)
-
 # Implementation Description
 
--   Explain the level of flexibility in your implementation, including how new object types can
-    be easily added or removed in the future.
-    The Factory Method Pattern allows easy addition/removal of beverage types by creating new concrete classes without modifying existing code, following the Open/Closed Principle for maintainability.
--   Discuss the simplicity and understandability of your implementation, ensuring that it is
-    easy for others to read and maintain.
-    By using the factory method, the Main class is decoupled from the concrete beverage creation logic, making the code easy to read and maintain.
--   Describe how you have avoided duplicated code and why it is important.
-    Common logic (e.g., condiments, cost calculations) is centralized in base classes, reducing redundancy. The Factory Method prevents repeating object creation logic across the codebase.
--   If applicable, mention any design patterns you have used and explain why they were
-    chosen.
-    The Factory Method Pattern was chosen for its flexibility and to decouple object creation. It allows the system to scale easily by adding new beverage types without altering existing code.
+I identified 3 opportunities for code improvement:
+
+## 1. Simplify the Condiment Management
+
+• The Condiment class is currently generic, with methods like getExtraCost() being overridden. It could benefit from a factory pattern to create condiments dynamically, avoiding repetitive code for instantiation.
+• Improvement: Introduce a CondimentFactory class. This can help avoid hardcoding the creation logic and make it easier to add new condiments in the future without modifying existing code.
+
+Explanation of Changes:
+
+1. Enum Separation:
+   o Created a new CondimentType enum to define condiment types (MILK, CREAM, SUGAR).
+   o This allows better separation between types and the condiment details (e.g., cost).
+2. Encapsulation of Creation Logic:
+   o Added a Condiment class with a private constructor to encapsulate properties like type and extraCost.
+   o Introduced a static factory method createCondiment(CondimentType type) to create condiment objects dynamically.
+3. Flexibility for Extension:
+   o The factory approach makes it easier to add new condiments in the future without modifying existing logic.
+
+## 2. Enhance the BeverageVendor Interface
+
+• The interface has both methods for creation (createBeverage) and direct operations like getCost or getRecipe. Mixing creation logic and behavior logic in the same interface violates the Single Responsibility Principle.
+• Improvement: Separate the responsibilities into two interfaces: one for beverage creation (e.g., BeverageFactory) and another for operations (e.g., BeverageService).
+
+Explanation of Changes:
+
+1. Single Responsibility Principle:
+   a. The BeverageFactory interface focuses solely on the creation of beverages.
+   b. The BeverageService interface handles operational methods like cost calculation and recipe retrieval.
+2. Flexibility:
+   a. These interfaces can be implemented independently, allowing vendors to focus on creation, operations, or both.
+   b. Different vendors (e.g., CoffeeVendor, TeaVendor) can have specialized implementations for creating or operating on beverages.
+3. Scalability:
+   a. Adding new responsibilities (e.g., beverage customization or discounting) becomes simpler by introducing new interfaces rather than modifying existing ones.
+
+## 3. Abstract Common Logic in Coffee and Tea
+
+• Both Coffee and Tea have a similar structure, with shared properties like size, baseBeverage, and otherCondiments. There's also redundancy in methods like getCost and addOtherCondiments.
+• Improvement: Create an abstract base class (e.g., BeverageBase) that encapsulates shared logic and properties. This reduces duplication in Coffee and Tea and improves maintainability.
+
+Explanation of Changes:
+
+1. Create Abstract Class BeverageBase:
+   o Encapsulate shared properties like size, baseBeverage, and otherCondiments.
+   o Provide common methods such as getCost(), addOtherCondiments(), and toString().
+2. Refactor Coffee.java and Tea.java:
+   o Both classes will extend the BeverageBase class, reducing duplication by inheriting shared properties and methods.
+   o Focus only on type-specific details (e.g., constructors or tea/coffee-specific logic).
 
 # Maven Commands
 

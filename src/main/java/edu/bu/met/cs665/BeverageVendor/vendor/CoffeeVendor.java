@@ -2,14 +2,15 @@ package edu.bu.met.cs665.BeverageVendor.vendor;
 
 import edu.bu.met.cs665.BeverageVendor.Beverage;
 import edu.bu.met.cs665.BeverageVendor.Condiment;
+import edu.bu.met.cs665.BeverageVendor.CondimentType;
 import edu.bu.met.cs665.BeverageVendor.Size;
 import edu.bu.met.cs665.BeverageVendor.coffee.Americano;
 import edu.bu.met.cs665.BeverageVendor.coffee.Coffee;
 import edu.bu.met.cs665.BeverageVendor.coffee.Espresso;
 import edu.bu.met.cs665.BeverageVendor.coffee.LatteMacchiato;
 
-// Concrete factory
-public class CoffeeCreator implements BeverageVendor {
+public class CoffeeVendor implements BeverageFactory, BeverageService {
+
     @Override
     public Beverage createBeverage(String name, String size, String[] condiments) {
         Coffee coffee = null;
@@ -32,9 +33,19 @@ public class CoffeeCreator implements BeverageVendor {
 
         // Add condiments
         for (String condiment : condiments) {
-            coffee.addOtherCondiments(Condiment.valueOf(condiment.toUpperCase()));
+            coffee.addOtherCondiments(Condiment.createCondiment(CondimentType.valueOf(condiment.toUpperCase())));
         }
 
         return coffee;
+    }
+
+    @Override
+    public double getCost(Beverage beverage) {
+        return beverage.getCost();
+    }
+
+    @Override
+    public String getRecipe(Beverage beverage) {
+        return beverage.toString();
     }
 }

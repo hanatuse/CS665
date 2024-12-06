@@ -5,10 +5,11 @@ import static org.junit.Assert.assertThrows;
 
 import org.junit.Test;
 
-import edu.bu.met.cs665.BeverageVendor.vendor.BeverageVendor;
-import edu.bu.met.cs665.BeverageVendor.vendor.CoffeeCreator;
-import edu.bu.met.cs665.BeverageVendor.vendor.TeaCreator;
 import edu.bu.met.cs665.BeverageVendor.Beverage;
+import edu.bu.met.cs665.BeverageVendor.vendor.BeverageFactory;
+import edu.bu.met.cs665.BeverageVendor.vendor.BeverageService;
+import edu.bu.met.cs665.BeverageVendor.vendor.CoffeeVendor;
+import edu.bu.met.cs665.BeverageVendor.vendor.TeaVendor;
 
 /**
  * Unit tests for Beverage Vendor App.
@@ -22,48 +23,53 @@ public class TestBeverageVendor {
     @Test
     public void testCreateCoffeeWithCondiments() {
         // Given: a coffee object
-        BeverageVendor coffeeVendor = new CoffeeCreator();
+        BeverageFactory coffeeVendor = new CoffeeVendor();
+        BeverageService coffeeService = (BeverageService) coffeeVendor;
 
-        // When: add condiments within limit 
-        String[] condiments = {"SUGAR", "MILK"}; // 1 unit of sugar and 1 unit of milk
+        // When: add condiments within limit
+        String[] condiments = { "SUGAR", "MILK" }; // 1 unit of sugar and 1 unit of milk
         Beverage espresso = coffeeVendor.createBeverage("Espresso", "medium", condiments);
 
         // Then: Check the beverage type and condiments
         assertEquals("Espresso", espresso.getBaseBeverage());
         assertEquals(2, espresso.getOtherCondiments().size());
 
-        // Then: Check the total cost (base price $4.0 + $0.1 for medium size + $0.2 for sugar + $0.5 for milk)
-        assertEquals(4.8, espresso.getCost(), 0.01);
+        // Then: Check the total cost (base price $4.0 + $0.1 for medium size + $0.2 for
+        // sugar + $0.5 for milk)
+        assertEquals(4.8, coffeeService.getCost(espresso), 0.01);
     }
 
     // Test creating a tea and calculating its cost
     @Test
     public void testCreateTeaWithCondiments() {
         // Given: a tea object
-        BeverageVendor teaVendor = new TeaCreator();
+        BeverageFactory teaVendor = new TeaVendor();
+        BeverageService teaService = (BeverageService) teaVendor;
 
         // When: add condiments within limit
-        String[] condiments = {"CREAM", "SUGAR"}; // 1 unit of cream and 1 unit of sugar
+        String[] condiments = { "CREAM", "SUGAR" }; // 1 unit of cream and 1 unit of sugar
         Beverage blackTea = teaVendor.createBeverage("BlackTea", "large", condiments);
 
         // Then: Check the beverage type and condiments
         assertEquals("BlackTea", blackTea.getBaseBeverage());
         assertEquals(2, blackTea.getOtherCondiments().size());
 
-        // Then: Check the total cost (base price $3.5 + $0.2 for large size + $0.5 for cream + $0.2 for sugar)
-        assertEquals(4.4, blackTea.getCost(), 0.01);
+        // Then: Check the total cost (base price $3.5 + $0.2 for large size + $0.5 for
+        // cream + $0.2 for sugar)
+        assertEquals(4.4, teaService.getCost(blackTea), 0.01);
     }
 
     // Test adding condiments beyond the allowed limit (more than 3 units)
     @Test
     public void testCondimentLimitExceeded() {
         // Given: a coffee object
-        BeverageVendor coffeeVendor = new CoffeeCreator();
+        BeverageFactory coffeeVendor = new CoffeeVendor();
 
-        // When: add condiments beyond the allowed limit 
-        String[] condiments = {"SUGAR", "SUGAR","SUGAR", "SUGAR"}; // 4 units of sugar
-        
-        // Then: Expect an IllegalArgumentException to be thrown when exceeding the condiment limit
+        // When: add condiments beyond the allowed limit
+        String[] condiments = { "SUGAR", "SUGAR", "SUGAR", "SUGAR" }; // 4 units of sugar
+
+        // Then: Expect an IllegalArgumentException to be thrown when exceeding the
+        // condiment limit
         assertThrows(IllegalArgumentException.class, () -> {
             coffeeVendor.createBeverage("Americano", "medium", condiments);
         });
@@ -73,10 +79,11 @@ public class TestBeverageVendor {
     @Test
     public void testMaxCondimentLimit() {
         // Given: a coffee object
-        BeverageVendor coffeeVendor = new CoffeeCreator();
+        BeverageFactory coffeeVendor = new CoffeeVendor();
+        BeverageService coffeeService = (BeverageService) coffeeVendor;
 
-        // when: add exactly 3 units of a condiment
-        String[] condiments = {"SUGAR", "SUGAR", "SUGAR"}; // 3 units of sugar
+        // When: add exactly 3 units of a condiment
+        String[] condiments = { "SUGAR", "SUGAR", "SUGAR" }; // 3 units of sugar
         Beverage espresso = coffeeVendor.createBeverage("Espresso", "small", condiments);
 
         // Then: Check the beverage type and condiments
@@ -84,16 +91,17 @@ public class TestBeverageVendor {
         assertEquals(3, espresso.getOtherCondiments().size());
 
         // Then: Check the total cost (base price $4.0 + 3 * $0.2 for sugar)
-        assertEquals(4.6, espresso.getCost(), 0.01);
+        assertEquals(4.6, coffeeService.getCost(espresso), 0.01);
     }
 
     // Test creating a tea without any condiments
     @Test
     public void testCreateTeaWithoutCondiments() {
         // Given: a tea object
-        BeverageVendor teaVendor = new TeaCreator();
+        BeverageFactory teaVendor = new TeaVendor();
+        BeverageService teaService = (BeverageService) teaVendor;
 
-        // WHen: add no condiments
+        // When: add no condiments
         String[] noCondiments = {}; // No condiments
         Beverage greenTea = teaVendor.createBeverage("GreenTea", "small", noCondiments);
 
@@ -102,6 +110,6 @@ public class TestBeverageVendor {
         assertEquals(0, greenTea.getOtherCondiments().size());
 
         // Then: Check the total cost (base price $3.5)
-        assertEquals(3.5, greenTea.getCost(), 0.01);
+        assertEquals(3.5, teaService.getCost(greenTea), 0.01);
     }
 }
